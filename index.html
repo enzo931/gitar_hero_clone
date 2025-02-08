@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock and Roll Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/icone.jfif" type="image/jfif">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Rock and Roll Game</h1>
+        <button id="start-button" onclick="startGame()">Iniciar</button>
+
+        <div id="music-list">
+            <h2>Selecione uma Musica</h2>
+            <ul>
+                <li onclick="selectSong('Monster By Skilled', 'img/monster.jfif', 'A música Monster da banda Skillet é uma poderosa expressão da luta interna<br> entre o eu controlado e uma versão mais selvagem e incontrolável de si mesmo.<br>A letra descreve uma batalha interna com uma parte oculta<br> da personalidade do narrador, que é comparada a um monstro.')">Monster By Skilled</li>
+                <li onclick="selectSong('Fell Invincible By Skilled', 'img/invencible.webp', 'A música Feel Invincible, da banda Skillet, é um hino de poder e resistência pessoal.<br>Com uma sonoridade marcante e energética, típica do rock alternativo e do metal cristão,<br> gêneros nos quais a banda se enquadra, a letra transmite uma mensagem de força e superação.')">Fell Invincible By Skilled</li>
+                <li onclick="selectSong('The Resistance By Skilled', 'img/resis.jpg', 'A música The Resistance da banda Skillet, conhecida por suas letras com<br> temáticas cristãs e de adoração, é um hino de empoderamento e resistência.<br> A letra fala sobre a união e a força coletiva, representada pela frase I am a nation,<br> I am a million faces, sugerindo que a voz do indivíduo é amplificada pela multidão.')">The Resistance By Skilled</li>
+                <li onclick="selectSong('Legendary By Skilled', 'img/hero.jfif', 'A música Legendary da banda Skillet é um hino de empoderamento e determinação.<br> Com uma sonoridade enérgica que mistura elementos do rock e do metal,<br> a letra da canção é um manifesto sobre a busca pela excelência e a superação de desafios.')">Legendary By Skilled</li>
+                <li onclick="selectSong('Finish Line By Skilled', 'img/bones.jpg', 'A música Finish Line da banda Skillet, conhecida por suas letras com temáticas cristãs e inspiradoras,<br> aborda a jornada da vida como uma corrida em que a determinação e a resiliência são fundamentais para alcançar a vitória.<br>  A letra utiliza metáforas esportivas para falar sobre superação e a crença<br> de que, mesmo diante das adversidades, é possível chegar ao fim com sucesso.')">Finish Line By Skilled</li>
+            </ul>
+        </div>
+        
+
+        <div id="selected-song"></div>
+        <div id="song-details">
+            <img id="song-image" src="" alt="Imagem da Música">
+            <p id="song-description"></p>
+            <button id="play-button" onclick="startGameSession()">Jogar</button>
+            <button id="back-button" onclick="goBack()">Voltar para a Lista</button>
+        </div>
+
+        <div id="how-to-play" class="how-to-play">
+            <div class="how-to-play-content">
+                <h2>Como Jogar</h2>
+                <p>Pontos coloridos irão aparecer na tela, eles são as notas, <br><br> Use as teclas <b>A</b>, <b>S</b>, <b>L</b> e <b>Ç</b> para acertar as notas que caem!</p>
+                <button id="close-how-to-play">Fechar</button>
+            </div>
+        </div>
+    
+        <div id="game-area" class="game-area">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+            <!-- Bloco para os botões de cores dentro do canvas -->
+            <div class="button-row">
+                <div class="color-button red" onclick="hitNote('red')"></div>
+                <div class="color-button green" onclick="hitNote('green')"></div>
+                <div class="color-button blue" onclick="hitNote('blue')"></div>
+                <div class="color-button yellow" onclick="hitNote('yellow')"></div>
+            </div>
+        </div>
+        
+    
+        <div id="score-container" style="position: fixed; left: 20px; top: 50%; transform: translateY(-50%); font-size: 70px; font-family: 'GuitarHero', sans-serif; color: white; z-index: 2; display: none;">
+            Score: <span id="score">0</span>
+        </div>
+
+        <!-- Barra de Vida -->
+        <div id="life-bar-container">
+          <div id="life-bar"></div>
+        </div>
+
+
+        <!-- Elementos de contagem regressiva -->
+        <div id="prepare-text" class="prepare-text" style="display: none; color: rgb(146, 0, 0);" >
+            Prepare-se!
+        </div>
+
+        <div id="countdown-text" class="countdown-text" style="display: none; color: rgb(146, 0, 0);">
+            3
+        </div>
+    </div>
+
+    <audio id="background-audio" loop>
+        <source src="Skillet-Monster__Lyrics_Video_.mp3" type="audio/mp3">
+        <source src="Skillet_-_The_Resistance__Official_Audio_.mp3" type="audio/mp3">
+        <source src="Skillet - Legendary (Official Video) (1).m4a" type="audio/mp3">
+        <source src="Skillet - Finish Line [Official Audio] (1).opus" type="audio/mp3">
+        <source src="Skillet - _Feel Invincible_ [Official Music Video] (1).m4a" type="audio/mp3">
+    </audio>
+
+    
+    
+    
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+@font-face {
+    font-family: 'GuitarHero';
+    src: url('fonts/StringsTheory-2yYK.ttf') format('truetype'); /* Verifique o caminho */
+}
+
+body {
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-image: url('img/fundo.jpg'); /* Verifique o caminho */
+    background-size: cover; /* Cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh; /* Faz com que o body tenha altura total da viewport */
+    display: flex; /* Usa flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    overflow: hidden; /* Impede rolagem */
+}
+
+.container {
+    text-align: center; /* Centraliza o texto */
+    color: white; /* Cor do texto */
+}
+
+h1 {
+    font-family: 'GuitarHero', sans-serif; /* Fonte do título */
+    font-size: 4rem; /* Tamanho do título */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+button {
+    padding: 15px 30px; /* Espaçamento do botão */
+    font-size: 1.5rem; /* Tamanho da fonte do botão */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    background-color: black; /* Fundo preto */
+    color: white; /* Cor do texto do botão */
+    font-family: 'GuitarHero', sans-serif; /* Usando a mesma fonte do título */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+button:hover {
+    background-color: rgb(146, 0, 0); /* Cor do botão ao passar o mouse (opcional) */
+}
+
+
+#song-image {
+    width: 300px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 300px; /* Define uma altura máxima se desejar */
+}
+
+@keyframes slideDown {
+    0% {
+        top: -50%; /* Começa fora da tela, acima */
+        opacity: 0; /* Começa invisível */
+    }
+    100% {
+        top: 50%; /* Move-se para o centro da tela */
+        opacity: 1; /* Fica completamente visível */
+    }
+}
+
+#game-over-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'GuitarHero', sans-serif;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: slideDown 1s forwards; /* Animação de deslizamento para baixo */
+}
+
+
+
+/* Estilo da mensagem de Game Over */
+#game-over-message {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 20px;  /* Espaço entre a mensagem e o texto do score */
+}
+
+#restart-button {
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'GuitarHero', sans-serif;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite; /* Animação de pulsação */
+}
+
+#restart-button:hover {
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: rgb(146, 0, 0); /* Cor do botão ao passar o mouse (opcional) */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'GuitarHero', sans-serif;
+    margin-top: 20px;
+    animation: pulse 1.5s infinite; /* Animação de pulsação */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Estilo do texto de score final */
+#final-score {
+    font-size: 40px;
+    color: white;
+    margin-top: 20px;
+}
+
+body {
+    font-family: 'GuitarHero';
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('img/fundo.jpg') no-repeat center center/cover;
+}
+
+#title {
+    position: relative;
+    transition: transform 1s;
+    text-align: center;
+    color: white;
+}
+
+#music-list {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#music-list h2 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+#music-list ul {
+    font-size: 1.5rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+#music-list li {
+    margin-bottom: 10px;
+    font-style: italic;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    font-size: 30px;
+}
+
+#music-list li:hover {
+    color: rgb(146, 0, 0);
+    transform: scale(1.1);
+}
+
+#selected-song {
+    display: none;
+}
+
+#song-details {
+    display: none;
+    text-align: center;
+}
+
+#song-details img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+#how-to-play {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9); /* Aumentar a opacidade para mais contraste */
+color: white;
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+font-size: 30px;
+}
+
+
+#how-to-play-content {
+    text-align: center;
+}
+
+#game-area {
+    display: none;
+    width: 600px;
+    height: 100vh;
+    position: relative;
+    background-color: #000;
+    opacity: 0;
+    animation: fadeInGame 1s forwards; /* Aplica animação de fade-in quando o jogo começa */
+}
+
+@keyframes fadeInGame {
+0% {
+opacity: 0; /* Começa invisível */
+}
+100% {
+opacity: 1; /* Fica totalmente visível */
+}
+}
+
+canvas {
+    width: 600px;
+    height: 100vh;
+    border: 2px solid white;
+}
+
+#score-container {
+    position: absolute;
+    left: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-family: 'GuitarHero', sans-serif;
+    color: white;
+    z-index: 2;
+}
+
+/* Container para os botões de cores (fixos no fundo da tela do canvas) */
+.button-row {
+    position: absolute;
+    bottom: 20px; /* Posiciona os botões no fundo do canvas */
+    left: 50%;    /* Centraliza os botões horizontalmente */
+    transform: translateX(-50%); /* Centraliza o conteúdo */
+    display: flex;
+    justify-content: space-around;
+    width: 80%; /* Deixa os botões ocupando uma parte da tela */
+    z-index: 10; /* Garante que os botões fiquem acima do canvas */
+}
+
+/* Estilos dos botões de cor */
+.color-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.color-button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para cada cor dos botões */
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
+
+/* Adicionando borda nos botões para melhorar a visibilidade */
+.color-button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid black;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+}
+
+
+.prepare-text {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.countdown-text {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#life-bar-container {
+    position: fixed;
+    left: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 30px;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 15px;
+    display: none;
+    border: 3px solid black; /* Borda com cor diferente */
+}
+
+#life-bar {
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out; /* Adicionando animação */
+}
+
+#start-button{
+    font-size: 40px;
+}
+
+
+
+
+
+
+
+
+
+
